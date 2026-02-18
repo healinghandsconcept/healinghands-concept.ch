@@ -18,7 +18,7 @@ module.exports = function (eleventyConfig) {
     let metadata = await Image(src, {
       widths: [300, 600, 900, 1200],
       formats: ["webp", "jpeg"],
-      urlPath: "/assets/img/optimized/",
+      urlPath: "/healinghands-concept.ch/assets/img/optimized/",
       outputDir: "./_site/assets/img/optimized/"
     });
 
@@ -43,6 +43,7 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk"
+    dataTemplateEngine: "njk",
+    pathPrefix: "/healinghands-concept.ch/"
   };
 };
