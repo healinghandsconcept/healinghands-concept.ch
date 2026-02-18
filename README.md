@@ -67,3 +67,6 @@ Le suivi du trafic (Google Analytics 4) est géré via **Cloudflare Zaraz** pour
   - `assets/` : CSS, JS, Images
   - `fr/` : Pages du site
 - `eleventy.config.js` : Configuration du build
+
+## 📈 Évolutions Futures
+Pour consulter les propositions d'améliorations et la roadmap du projet, voir [roadmap.md](./roadmap.md).
