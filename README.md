@@ -7,8 +7,8 @@ Ce projet est le site vitrine statique pour **Healing Hands Concept**, cabinet d
 - **Générateur de site** : [Eleventy (11ty)](https://www.11ty.dev/)
 - **Langage de template** : Nunjucks (`.njk`)
 - **CSS** : CSS Moderne (Variables, Flexbox, Grid)
-- **Hébergement** : GitHub Pages
-- **Formulaire de Contact** : Intégration prévue avec Resend via Serverless Functions.
+- **Hébergement** : Cloudflare Pages
+- **Formulaire de Contact** : Cloudflare Pages Functions (Serverless)
 
 ## 🚀 Installation & Développement
 
@@ -27,24 +27,24 @@ Ce projet est le site vitrine statique pour **Healing Hands Concept**, cabinet d
     npm run build -- --serve
     ```
     Le site sera accessible sur `http://localhost:8080`.
+    *Note : Pour tester les fonctions Cloudflare en local, il est recommandé d'utiliser `wrangler pages dev`.*
 
-## 📨 Configuration du Formulaire de Contact (Resend)
+## 📨 Configuration du Formulaire de Contact (Cloudflare Pages)
 
-Le site étant statique, la logique d'envoi d'email doit être gérée par une fonction "Serverless" externe pour sécuriser votre clé API.
+Le backend est géré par le fichier `functions/api/send.js`.
 
 **NE JAMAIS METTRE VOTRE CLÉ API DANS LE CODE PUBLIC (GIT).**
 
 ### Étapes pour configurer l'envoi d'email :
 
 1.  **Créer un compte** sur [Resend.com](https://resend.com) et obtenir une API Key.
-2.  **Héberger une fonction backend** :
-    - Utilisez un service gratuit comme **Vercel** ou **Netlify**.
-    - Déployez le code fourni dans le fichier `resend-guide.md` à la racine de ce projet.
-3.  **Configurer la Clé API** :
-    - Dans le tableau de bord de votre hébergeur (ex: Vercel), allez dans **Settings > Environment Variables**.
-    - Ajoutez une variable nommée `RESEND_API_KEY` avec la valeur de votre clé.
-4.  **Connecter le Formulaire** :
-    - Dans `src/fr/contact.njk`, mettez à jour l'URL de `fetch('/api/send-email', ...)` pour pointer vers l'URL de votre fonction déployée.
+2.  **Configurer la Clé API sur Cloudflare** :
+    - Dans le dashboard Cloudflare Pages de votre projet : **Settings > Environment Variables**.
+    - Ajoutez `RESEND_API_KEY` avec votre clé.
+3.  **Deployer** :
+    - Connectez votre repo GitHub à Cloudflare Pages.
+    - Build command : `npm run build`
+    - Build output directory : `_site`
 
 ## 🌍 SEO & Bonnes Pratiques
 

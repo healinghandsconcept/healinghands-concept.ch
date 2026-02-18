@@ -82,27 +82,27 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   const data = Object.fromEntries(formData.entries());
 
   try {
-    // Replace URL below with your actual API endpoint (e.g., https://yourbase.com/api/send)
-    // const response = await fetch('/api/send-email', { 
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data)
-    // });
+    const response = await fetch('/api/send', { 
+      method: 'POST',
+      body: formData // Sending FormData directly is often easier, but the function expects JSON? 
+                     // Wait, my function code expects FormData? 
+                     // Let's check functions/api/send.js
+                     // Yes: const formData = await request.formData();
+    });
 
-    // if (response.ok) {
-    //   statusEl.textContent = 'Merci ! Votre message a été envoyé avec succès.';
-    //   statusEl.classList.add('success');
-    //   this.reset();
-    // } else {
-    //   throw new Error('Erreur lors de l\'envoi');
-    // }
+    const result = await response.json();
 
-    statusEl.textContent = "Le formulaire est prêt. Veuillez configurer l'endpoint API pour Resend dans ce script.";
-    statusEl.classList.add('info');
+    if (response.ok) {
+      statusEl.textContent = 'Merci ! Votre message a été envoyé avec succès.';
+      statusEl.className = 'form-status success';
+      this.reset();
+    } else {
+      throw new Error(result.error || 'Erreur lors de l\'envoi');
+    }
 
   } catch (error) {
-    statusEl.textContent = "Une erreur est survenue. Veuillez réessayer ou nous contacter par email directement.";
-    statusEl.classList.add('error');
+    statusEl.textContent = "Une erreur est survenue : " + error.message;
+    statusEl.className = 'form-status error';
   } finally {
     submitBtn.disabled = false;
   }

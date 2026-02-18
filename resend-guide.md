@@ -1,42 +1,28 @@
-# Intégration de Resend sur un site statique
+# Intégration de Resend sur Cloudflare Pages
 
-Comme le site est hébergé sur GitHub Pages (statique), vous ne pouvez pas exécuter de code Node.js côté serveur directement sur cette plateforme pour envoyer des emails avec votre clé API Resend sans l'exposer.
+Le site étant déployé sur **Cloudflare Pages**, nous utilisons les **Cloudflare Pages Functions** pour gérer l'envoi d'email de manière sécurisée (Serverless).
 
-## Option Recommandée : Fonction Serverless (Vercel ou Netlify)
+## 1. Structure du Code
+Le code backend a été créé automatiquement dans le fichier :
+`functions/api/send.js`
 
-La méthode la plus simple consiste à déployer une petite fonction "Serverless" sur une plateforme comme Vercel ou Netlify (gratuit).
+Ce fichier intercepte les requêtes `POST` envoyées à `/api/send` et utilise l'API Fetch pour communiquer avec Resend.
 
-### 1. Où mettre la clé API ?
-Indiquez la clé dans les **Variables d'Environnement** de votre plateforme de déploiement (ex: Vercel Dashboard -> Settings -> Environment Variables) sous le nom `RESEND_API_KEY`.
+## 2. Configuration sur Cloudflare
 
-### 2. Exemple de code (Node.js)
+Pour que l'envoi d'email fonctionne, vous devez configurer votre clé API Resend dans Cloudflare :
 
-Voici à quoi ressemblerait votre fonction backend (ex: `api/send.js`) :
+1.  Connectez-vous à votre tableau de bord **Cloudflare**.
+2.  Allez dans **Workers & Pages** et sélectionnez votre projet `healinghands-concept`.
+3.  Allez dans **Settings** > **Environment variables**.
+4.  Ajoutez une variable :
+    - **Variable name** : `RESEND_API_KEY`
+    - **Value** : Votre clé API Resend (commençant par `re_...`)
+5.  (Optionnel) Pour tester en local, vous pouvez créer un fichier `.dev.vars` (non commité) avec `RESEND_API_KEY=votre_clé`.
 
-```javascript
-import { Resend } from 'resend';
+## 3. Important : Vérification du Domaine
+Si vous n'avez pas encore configuré de domaine personnalisé sur Resend, vous ne pouvez envoyer des emails qu'à l'adresse email utilisée pour créer votre compte Resend, et l'adresse d'envoi sera `onboarding@resend.dev`.
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export default async function handler(req, res) {
-  const { name, email, subject, message } = req.body;
-
-  try {
-    const data = await resend.emails.send({
-      from: 'Healing Hands <contact@healinghands-concept.ch>',
-      to: ['votre-email@exemple.com'],
-      subject: `[Contact Site] ${subject} - de ${name}`,
-      html: `<p><strong>Nom:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong> ${message}</p>`,
-    });
-
-    res.status(200).json(data);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-}
-```
-
-### 3. Mise à jour du formulaire
-Dans `src/fr/contact.njk`, remplacez l'URL `/api/send-email` par l'URL de votre fonction déployée.
+Une fois votre domaine `healinghands-concept.ch` vérifié sur Resend :
+1.  Modifiez le fichier `functions/api/send.js`.
+2.  Changez `from: 'onboarding@resend.dev'` par `from: 'contact@healinghands-concept.ch'`.
