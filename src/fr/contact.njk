@@ -1,0 +1,110 @@
+---
+layout: base.njk
+title: Contact - Healing Hands Concept
+description: Contactez Fabio Gomes pour vos besoins en bien-être et prévention.
+---
+
+<section class="page-header container">
+  <h1>Contact</h1>
+  <p class="subtitle">Une question ? Un projet ? N'hésitez pas à nous contacter.</p>
+</section>
+
+<section class="contact-section container section-padding">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Nos Coordonnées</h2>
+      <p>Retrouvez-nous au cabinet à Fribourg ou demandez une intervention dans vos locaux.</p>
+      
+      <div class="info-item">
+        <strong>Adresse</strong>
+        <p>Cabinet de Massage, Fribourg (Suisse)</p>
+      </div>
+      
+      <div class="info-item">
+        <strong>Email</strong>
+        <p><a href="mailto:contact@healinghands-concept.ch">contact@healinghands-concept.ch</a></p>
+      </div>
+
+      <div class="info-item">
+        <strong>Horaires</strong>
+        <p>Lundi - Vendredi : 08h00 - 19h00<br>Samedi : Sur demande</p>
+      </div>
+    </div>
+
+    <div class="contact-form-container">
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="name">Nom / Entreprise</label>
+          <input type="text" id="name" name="name" required placeholder="Votre nom ou nom de l'entreprise">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="votre@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <select id="subject" name="subject">
+            <option value="Healing Pass Entreprise">Healing Pass Entreprise</option>
+            <option value="Healing Pass Particulier">Healing Pass Particulier</option>
+            <option value="Demande d'information">Demande d'information</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Comment pouvons-nous vous aider ?"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Envoyer mon message</button>
+        <div id="form-status" class="form-status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+// Logic for Resend Integration (Client-side implementation with instructions)
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const statusEl = document.getElementById('form-status');
+  const submitBtn = e.target.querySelector('button');
+  
+  statusEl.textContent = 'Envoi en cours...';
+  submitBtn.disabled = true;
+
+  // IMPORTANT: Since this is a static site, you need a backend endpoint to keep your Resend API Key secret.
+  // We recommend using a serverless function (Vercel, Netlify, or a simple Node interface).
+  
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    // Replace URL below with your actual API endpoint (e.g., https://yourbase.com/api/send)
+    // const response = await fetch('/api/send-email', { 
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // });
+
+    // if (response.ok) {
+    //   statusEl.textContent = 'Merci ! Votre message a été envoyé avec succès.';
+    //   statusEl.classList.add('success');
+    //   this.reset();
+    // } else {
+    //   throw new Error('Erreur lors de l\'envoi');
+    // }
+
+    statusEl.textContent = "Le formulaire est prêt. Veuillez configurer l'endpoint API pour Resend dans ce script.";
+    statusEl.classList.add('info');
+
+  } catch (error) {
+    statusEl.textContent = "Une erreur est survenue. Veuillez réessayer ou nous contacter par email directement.";
+    statusEl.classList.add('error');
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+</script>
