@@ -46,9 +46,15 @@ Le backend est géré par le fichier `functions/api/send.js`.
     - Build command : `npm run build`
     - Build output directory : `_site`
 
-## 🌍 SEO & Bonnes Pratiques
+## 🌍 SEO & Analytics (Cloudflare Zaraz)
 
-- **Meta Tags** : Configurés automatiquement dans `_includes/base.njk`.
+Le suivi du trafic (Google Analytics 4) est géré via **Cloudflare Zaraz** pour ne pas impacter les performances du site.
+
+### Configuration :
+1.  Dans le dashboard Cloudflare, aller sous **Zaraz**.
+2.  Ajouter un outil tiers : **Google Analytics 4**.
+3.  Entrer votre **ID de mesure** (G-XXXXXXXXXX).
+4.  Zaraz chargera GA4 automatiquement via le réseau Cloudflare sans ajouter de code lourd sur le site.
 - **Schema.org** : Données structurées `LocalBusiness` incluses pour améliorer le référencement local.
 - **Performance** : Images optimisées avec `eleventy-img` (WebP).
 - **Mobile** : Design Responsive et Menu "Sticky" intelligent.

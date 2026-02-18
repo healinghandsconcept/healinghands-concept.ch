@@ -20,9 +20,23 @@ Pour que l'envoi d'email fonctionne, vous devez configurer votre clé API Resend
     - **Value** : Votre clé API Resend (commençant par `re_...`)
 5.  (Optionnel) Pour tester en local, vous pouvez créer un fichier `.dev.vars` (non commité) avec `RESEND_API_KEY=votre_clé`.
 
-## 3. Important : Vérification du Domaine
-Si vous n'avez pas encore configuré de domaine personnalisé sur Resend, vous ne pouvez envoyer des emails qu'à l'adresse email utilisée pour créer votre compte Resend, et l'adresse d'envoi sera `onboarding@resend.dev`.
+## 3. Configuration du Domaine (Obligatoire pour Production)
 
-Une fois votre domaine `healinghands-concept.ch` vérifié sur Resend :
-1.  Modifiez le fichier `functions/api/send.js`.
-2.  Changez `from: 'onboarding@resend.dev'` par `from: 'contact@healinghands-concept.ch'`.
+Pour envoyer des emails depuis `contact@healinghands-concept.ch` et éviter le dossier SPAM, vous devez configurer votre domaine sur Resend :
+
+1.  Allez sur **Resend Dashboard > Domains**.
+2.  Cliquez sur **Add Domain** et entrez `healinghands-concept.ch`.
+3.  Resend vous donnera des enregistrements DNS (DKIM, SPF, DMARC) à ajouter.
+4.  Allez sur votre gestionnaire DNS (Cloudflare pour vous) et ajoutez ces enregistrements.
+5.  Une fois le statut **Verified**, mettez à jour votre code :
+
+### Mise à jour du code (`functions/api/send.js`)
+Une fois le domaine vérifié, modifiez la ligne `from` dans `functions/api/send.js` :
+
+```javascript
+// AVANT (Test)
+from: 'Healing Hands Contact <onboarding@resend.dev>',
+
+// APRÈS (Production)
+from: 'Healing Hands Contact <contact@healinghands-concept.ch>',
+```
