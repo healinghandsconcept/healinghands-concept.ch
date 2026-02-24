@@ -6,7 +6,7 @@ Ce document liste les améliorations suggérées pour faire évoluer le site **H
 
 ### Email Professionnel (Priorité Haute)
 Pour maximiser la délivrabilité des emails envoyés via le formulaire de contact et renforcer le professionnalisme :
-- **Action** : Configurer une adresse email de type `bonjour@healinghands-concept.ch` ou `fabio@healinghands-concept.ch` au lieu d'utiliser une adresse générique (Gmail, etc.) ou l'adresse par défaut de Resend.
+- **Action** : Configurer une adresse email de type bonjour arboase healinghands-concept point ch ou fabio arobase healinghands-concept point ch au lieu d'utiliser une adresse générique (Gmail, etc.) ou l'adresse par défaut de Resend.
 - **Bénéfice** : Réduit considérablement les risques de tomber en SPAM et renforce l'image de marque auprès des clients.
 - **Lien** : Voir le guide [resend-guide.md](./resend-guide.md) pour la configuration DNS technique.
 

@@ -1,7 +1,7 @@
 :root {
-    --color-primary: #1B9C85;
-    --color-secondary: #FF6A00;
-    /* Gold/Orange accent */
+    --color-primary: #1B3221;
+    --color-secondary: #D4AF37;
+    /* Metallic Gold accent */
     --color-text: #333333;
     --color-bg: #FFFFFF;
     --color-bg-alt: #FAFAFA;
@@ -114,8 +114,8 @@ img {
 }
 
 .btn:hover {
-    background-color: #e65c00;
-    /* Darker shade of gold/orange */
+    background-color: #B8962E;
+    /* Darker shade of gold */
     color: white;
 }
 
@@ -164,8 +164,8 @@ img {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #e6f7f3 100%);
-    /* Soft Green tint */
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #E8EDE9 100%);
+    /* Very soft tint of brand green */
     padding: 100px 0;
     text-align: center;
 }
@@ -307,6 +307,7 @@ img {
     background-color: var(--color-secondary);
     color: white;
 }
+
 /* Contact Page */
 .contact-grid {
     display: grid;
@@ -350,8 +351,8 @@ img {
     font-weight: 600;
 }
 
-.form-group input, 
-.form-group select, 
+.form-group input,
+.form-group select,
 .form-group textarea {
     width: 100%;
     padding: 12px;
@@ -360,8 +361,8 @@ img {
     font-family: var(--font-body);
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
+.form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--color-primary);
@@ -424,7 +425,7 @@ img {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .footer-nav a {
         margin: 0 var(--spacing-sm);
     }
