@@ -2,5 +2,11 @@
     "title": "Healing Hands Concept",
     "url": "https://healinghands-concept.ch",
     "language": "fr",
-    "description": "Massages et thérapies pour entreprises et particuliers."
+    "description": "Massages et thérapies pour entreprises et particuliers.",
+    "address": {
+        "streetAddress": "Route de Beaumont 9c",
+        "addressLocality": "Fribourg",
+        "postalCode": "1700",
+        "addressCountry": "Suisse"
+    }
 }
