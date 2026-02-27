@@ -35,6 +35,7 @@ Pour maximiser la délivrabilité des emails envoyés via le formulaire de conta
 - **Bénéfice** : Permet aux clients de réserver et payer leur séance 24h/24 sans interaction manuelle.
 
 ### Témoignages Clients
+- **Statut** : Aperçu statique ajouté sur l'accueil, envoi vers une intégration dynamique si souhaité.
 - **Action** : Ajouter une section de témoignages (Google Reviews) sur la page d'accueil.
 
 ## 🌍 Multilingue
