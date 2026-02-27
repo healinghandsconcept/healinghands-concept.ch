@@ -1,69 +1,69 @@
 ---
 translationKey: contact
 layout: base.njk
-title: Contact - Healing Hands Concept
-description: Contactez Fabio Gomes pour vos besoins en bien-être et prévention.
+title: Contato - Healing Hands Concept
+description: Contate Fabio Gomes para suas necessidades de bem-estar e prevenção.
 ---
 
 <section class="page-header container">
-  <h1>Contact</h1>
-  <p class="subtitle">Une question ? Un projet bien-être à Fribourg ? Contactez-nous.</p>
+  <h1>Contato</h1>
+  <p class="subtitle">Uma questão? Um projeto de bem-estar em Friburgo? Contate-nos.</p>
 </section>
 
 <section class="contact-section container section-padding">
   <div class="contact-grid">
     <div class="contact-info">
-      <h2>Nos coordonnées</h2>
-      <p>Retrouvez-nous à notre cabinet de massage à Fribourg (Route de Beaumont) ou demandez une intervention santé directement dans les locaux de votre entreprise.</p>
+      <h2>Nossos dados</h2>
+      <p>Encontre-nos no nosso consultório de massagem em Friburgo (Route de Beaumont) ou solicite uma intervenção de saúde diretamente nas instalações da sua empresa.</p>
       
       <div class="info-item">
-        <strong>Adresse</strong>
+        <strong>Endereço</strong>
         <p>
           <a href="https://www.google.com/maps/place/The+Healing+Hands+Concept+Fribourg+-+Massage+Th%C3%A9rapeutique,+Duo,+Sportif+et+%C3%A0+domicile/@46.8016421,7.1511211,15z/data=!4m6!3m5!1s0x478e697d264f33fd:0xf79ed1a141b2a953!8m2!3d46.8016421!4d7.1511211!16s%2Fg%2F11sbj9tt1q" target="_blank" rel="noopener noreferrer">
-            Route de Beaumont 9c<br>1700 Fribourg (Suisse)
+            Route de Beaumont 9c<br>1700 Friburgo (Suíça)
           </a>
         </p>
       </div>
       
       <div class="info-item">
-        <strong>Email</strong>
+        <strong>E-mail</strong>
         <p><a href="mailto:contact@healinghands-concept.ch">contact@healinghands-concept.ch</a></p>
       </div>
 
       <div class="info-item">
-        <strong>Horaires</strong>
-        <p>Lundi - Vendredi : 08h00 - 19h00<br>Samedi : sur demande</p>
+        <strong>Horário de funcionamento</strong>
+        <p>Segunda - Sexta : 08h00 - 19h00<br>Sábado : sob pedido</p>
       </div>
     </div>
 
     <div class="contact-form-container">
       <form id="contact-form" class="contact-form">
         <div class="form-group">
-          <label for="name">Nom / Entreprise</label>
-          <input type="text" id="name" name="name" required placeholder="Votre nom ou nom de l'entreprise">
+          <label for="name">Nome / Empresa</label>
+          <input type="text" id="name" name="name" required placeholder="O seu nome ou o nome da empresa">
         </div>
         
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="votre@email.com">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com">
         </div>
 
         <div class="form-group">
-          <label for="subject">Sujet</label>
+          <label for="subject">Assunto</label>
           <select id="subject" name="subject">
-            <option value="Healing Pass Entreprise">Healing Pass Entreprise</option>
-            <option value="Healing Pass Particulier">Healing Pass Particulier</option>
-            <option value="Demande d'information">Demande d'information</option>
-            <option value="Autre">Autre</option>
+            <option value="Healing Pass Empresa">Healing Pass Empresa</option>
+            <option value="Healing Pass Particular">Healing Pass Particular</option>
+            <option value="Pedido de informação">Pedido de informação</option>
+            <option value="Outro">Outro</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Comment pouvons-nous vous aider ?"></textarea>
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Como podemos ajudar?"></textarea>
         </div>
 
-        <button type="submit" class="btn">Envoyer mon message</button>
+        <button type="submit" class="btn">Enviar a minha mensagem</button>
         <div id="form-status" class="form-status"></div>
       </form>
     </div>
@@ -77,7 +77,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   const statusEl = document.getElementById('form-status');
   const submitBtn = e.target.querySelector('button');
   
-  statusEl.textContent = 'Envoi en cours...';
+  statusEl.textContent = 'A enviar...';
   submitBtn.disabled = true;
 
   // IMPORTANT: Since this is a static site, you need a backend endpoint to keep your Resend API Key secret.
@@ -98,15 +98,15 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const result = await response.json();
 
     if (response.ok) {
-      statusEl.textContent = 'Merci ! Votre message a été envoyé avec succès.';
+      statusEl.textContent = 'Obrigado! A sua mensagem foi enviada com sucesso.';
       statusEl.className = 'form-status success';
       this.reset();
     } else {
-      throw new Error(result.error || 'Erreur lors de l\'envoi');
+      throw new Error(result.error || 'Erro ao enviar');
     }
 
   } catch (error) {
-    statusEl.textContent = "Une erreur est survenue : " + error.message;
+    statusEl.textContent = "Ocorreu um erro: " + error.message;
     statusEl.className = 'form-status error';
   } finally {
     submitBtn.disabled = false;

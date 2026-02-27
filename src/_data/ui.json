@@ -1,0 +1,47 @@
+{
+    "fr": {
+        "companies": "Pour entreprises",
+        "ems": "Pour EMS",
+        "individuals": "Pour particuliers",
+        "about": "A propos",
+        "contact": "Contact",
+        "legal": "Mentions Légales",
+        "cgv": "CGV",
+        "rights": "Tous droits réservés.",
+        "address": "Route de Beaumont 9c, 1700 Fribourg",
+        "web_expert": "Conception de sites web ultra-rapides pour les entreprises fribourgeoises",
+        "open_menu": "Ouvrir le menu",
+        "menu": "Menu",
+        "lang_label": "Langue"
+    },
+    "en": {
+        "companies": "For companies",
+        "ems": "For nursing homes",
+        "individuals": "For individuals",
+        "about": "About",
+        "contact": "Contact",
+        "legal": "Legal Notice",
+        "cgv": "T&C",
+        "rights": "All rights reserved.",
+        "address": "Route de Beaumont 9c, 1700 Fribourg",
+        "web_expert": "Ultra-fast website design for companies in Fribourg",
+        "open_menu": "Open menu",
+        "menu": "Menu",
+        "lang_label": "Language"
+    },
+    "pt": {
+        "companies": "Para empresas",
+        "ems": "Para lares de idosos",
+        "individuals": "Para particulares",
+        "about": "Sobre",
+        "contact": "Contato",
+        "legal": "Avisos Legais",
+        "cgv": "CGC",
+        "rights": "Todos os direitos reservados.",
+        "address": "Route de Beaumont 9c, 1700 Fribourg",
+        "web_expert": "Design de sites web ultrarrápidos para empresas em Friburgo",
+        "open_menu": "Abrir o menu",
+        "menu": "Menu",
+        "lang_label": "Idioma"
+    }
+}

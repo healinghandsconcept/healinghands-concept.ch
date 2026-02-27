@@ -10,7 +10,8 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Healing Hands Concept",
-      "image": "{{ '/assets/img/logo-main.png' | url }}",
+      "description": "{{ description or metadata.description }}",
+      "image": "{{ metadata.url }}/assets/img/logo-main.png",
       "@id": "{{ metadata.url }}",
       "url": "{{ metadata.url }}",
       "telephone": "",
@@ -40,6 +41,23 @@
       }
     }
     </script>
+    {% if translationKey %}
+    {% for item in collections.all %}
+      {% if item.data.translationKey == translationKey %}
+      <link rel="alternate" hreflang="{{ item.data.language }}" href="{{ metadata.url }}{{ item.url }}">
+      {% if item.data.language == 'fr' %}
+      <link rel="alternate" hreflang="x-default" href="{{ metadata.url }}{{ item.url }}">
+      {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% endif %}
+    <link rel="canonical" href="{{ metadata.url }}{{ page.url }}">
+    <meta property="og:title" content="{{ title or metadata.title }}">
+    <meta property="og:description" content="{{ description or metadata.description }}">
+    <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ metadata.url }}/assets/img/logo-main.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ language or metadata.language or 'fr' }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicon/apple-touch-icon.png' | url }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon/favicon-32x32.png' | url }}">
@@ -54,8 +72,8 @@
     <header class="site-header">
         <div class="container">
             <div class="header-shell">
-                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Ouvrir le menu">
-                    <span class="menu-toggle-label">Menu</span>
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="{{ ui[currentLanguage].open_menu }}">
+                    <span class="menu-toggle-label">{{ ui[currentLanguage].menu }}</span>
                     <span class="menu-toggle-icon" aria-hidden="true"></span>
                 </button>
                 <a href="{{ '/fr/' | url }}" class="logo">
@@ -65,22 +83,41 @@
                 <div class="header-nav-groups" id="site-menu">
                     <nav class="site-nav site-nav-left" aria-label="Navigation principale gauche">
                         <ul>
+                            {% if currentLanguage == 'fr' %}
                             <li><a href="{{ '/fr/healing-pass-entreprises/' | url }}">Pour entreprises</a></li>
                             <li><a href="{{ '/fr/healing-pass-ems/' | url }}">Pour EMS</a></li>
                             <li><a href="{{ '/fr/healing-pass-particuliers/' | url }}">Pour particuliers</a></li>
+                            {% else %}
+                            <li><a href="#">{{ ui[currentLanguage].companies }}</a></li>
+                            <li><a href="#">{{ ui[currentLanguage].ems }}</a></li>
+                            <li><a href="#">{{ ui[currentLanguage].individuals }}</a></li>
+                            {% endif %}
                         </ul>
                     </nav>
                     <nav class="site-nav site-nav-right" aria-label="Navigation principale droite">
                         <ul>
+                            {% if currentLanguage == 'fr' %}
                             <li><a href="{{ '/fr/a-propos/' | url }}">A propos</a></li>
                             <li><a href="{{ '/fr/contact/' | url }}">Contact</a></li>
+                            {% else %}
+                            <li><a href="#">{{ ui[currentLanguage].about }}</a></li>
+                            <li><a href="#">{{ ui[currentLanguage].contact }}</a></li>
+                            {% endif %}
                             <li class="lang-switcher">
-                                <span class="lang-switcher-label">Langue</span>
-                                <a href="{{ '/fr/' | url }}" class="lang-option{% if currentLanguage == 'fr' %} is-active{% endif %}" lang="fr"{% if currentLanguage == 'fr' %} aria-current="true"{% endif %}>FR</a>
+                                {% set urlFr = '/fr/' %}{% set urlPt = '/pt/' %}{% set urlEn = '/en/' %}
+                                {% for i in collections.all %}
+                                  {% if i.data.translationKey == translationKey %}
+                                    {% if i.data.language == 'fr' %}{% set urlFr = i.url %}{% endif %}
+                                    {% if i.data.language == 'pt' %}{% set urlPt = i.url %}{% endif %}
+                                    {% if i.data.language == 'en' %}{% set urlEn = i.url %}{% endif %}
+                                  {% endif %}
+                                {% endfor %}
+                                <span class="lang-switcher-label">{{ ui[currentLanguage].lang_label }}</span>
+                                <a href="{{ urlFr | url }}" class="lang-option{% if currentLanguage == 'fr' %} is-active{% endif %}" lang="fr"{% if currentLanguage == 'fr' %} aria-current="true"{% endif %}>FR</a>
                                 <span class="lang-divider" aria-hidden="true">/</span>
-                                <span class="lang-option is-disabled" lang="pt" aria-disabled="true" title="Version portugaise bientôt disponible">PT</span>
+                                <a href="{{ urlPt | url }}" class="lang-option{% if currentLanguage == 'pt' %} is-active{% endif %}" lang="pt"{% if currentLanguage == 'pt' %} aria-current="true"{% endif %}>PT</a>
                                 <span class="lang-divider" aria-hidden="true">/</span>
-                                <span class="lang-option is-disabled" lang="en" aria-disabled="true" title="English version coming soon">EN</span>
+                                <a href="{{ urlEn | url }}" class="lang-option{% if currentLanguage == 'en' %} is-active{% endif %}" lang="en"{% if currentLanguage == 'en' %} aria-current="true"{% endif %}>EN</a>
                             </li>
                         </ul>
                     </nav>
@@ -96,18 +133,23 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content" style="align-items: flex-end;">
-                <p>&copy; 2026 Healing Hands Concept. Tous droits réservés. <br> Route de Beaumont 9c, 1700 Fribourg</p>
+                <p>&copy; 2026 Healing Hands Concept. {{ ui[currentLanguage].rights }} <br> {{ ui[currentLanguage].address }}</p>
                 <div style="text-align: right; display: flex; flex-direction: column; gap: var(--spacing-sm);">
                     <nav class="footer-nav">
+                        {% if currentLanguage == 'fr' %}
                         <a href="{{ '/fr/mentions-legales/' | url }}">Mentions Légales</a>
                         <a href="{{ '/fr/cgv/' | url }}">CGV</a>
+                        {% else %}
+                        <a href="{{ '/fr/mentions-legales/' | url }}">{{ ui[currentLanguage].legal }}</a>
+                        <a href="{{ '/fr/cgv/' | url }}">{{ ui[currentLanguage].cgv }}</a>
+                        {% endif %}
                     </nav>
                     <p class="footer-credit">
                         <a href="https://cedricv.com/fr/site-web-rapide/" 
                            title="Expert en sites web statiques et rapides à Fribourg" 
                            target="_blank" 
                            rel="noopener noreferrer">
-                           Conception de sites web ultra-rapides pour les entreprises fribourgeoises
+                           {{ ui[currentLanguage].web_expert }}
                         </a>
                     </p>
                 </div>

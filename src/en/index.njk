@@ -1,0 +1,58 @@
+---
+translationKey: home
+layout: base.njk
+title: Therapeutic Massage in the Fribourg Region - Healing Hands Concept
+description: Therapeutic massages and prevention programs for companies and individuals in the Fribourg region.
+bodyClass: home-page
+---
+
+<section class="hero" style="--hero-bg-image: url('{{ '/assets/img/JWD05672.jpg' | url }}');">
+  <div class="container hero-content">
+    <span style="display: block; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-secondary); margin-bottom: 0.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Well-being as a Foundation</span>
+    <h1>Therapeutic Massage & Well-being in the Fribourg Region</h1>
+    <p>Fabio Gomes, Swiss Massage Champion and European medalist, supports companies, nursing homes, and individuals with a flexible Healing Pass adapted to your budget.</p>
+    <div class="hero-actions">
+      <a href="{{ '/en/healing-pass-companies/' | url }}" class="btn btn-gold">For Companies</a>
+      <a href="{{ '/en/healing-pass-nursing-homes/' | url }}" class="btn btn-green">For <span class="tooltip" data-tooltip="Nursing Homes">Nursing Homes</span></a>
+      <a href="{{ '/en/healing-pass-individuals/' | url }}" class="btn btn-white">For Individuals</a>
+    </div>
+  </div>
+</section>
+
+<section class="mission container section-padding">
+  <div class="mission-text">
+    <h2>The Healing Pass: Regular Well-being</h2>
+    <p>The principle is simple: a clear well-being budget (for example, 50 CHF/month/person), usable according to real needs, at the clinic or directly on-site. The goal is to act before physical and mental burnout.</p>
+  </div>
+</section>
+
+<section class="features container section-padding">
+  <a href="{{ '/en/healing-pass-companies/' | url }}" class="feature-card">
+    <h3>For Companies</h3>
+    <p>Reduce tension related to sedentary work, support talent retention, and strengthen the sustainable performance of your teams.</p>
+  </a>
+  <a href="{{ '/en/healing-pass-nursing-homes/' | url }}" class="feature-card">
+    <h3>For <span class="tooltip" data-tooltip="Nursing Homes">Nursing Homes</span></h3>
+    <p>Take care of those who care and soothe residents: prevention of <span class="tooltip" data-tooltip="Musculoskeletal Disorders">MSDs</span> for teams and therapeutic touch for the elderly.</p>
+  </a>
+  <a href="{{ '/en/healing-pass-individuals/' | url }}" class="feature-card">
+    <h3>For Individuals</h3>
+    <p>Simple access to precision therapeutic care, with locally recognized quality (40+ Google reviews, 5/5 rating).</p>
+  </a>
+</section>
+
+<section class="testimonials container section-padding text-center">
+  <h2>They Trust Us</h2>
+  <div style="margin-top: var(--spacing-lg); max-width: 600px; margin-left: auto; margin-right: auto; padding: 0 var(--spacing-md);">
+    <a href="https://share.google/3NkiYm33ABirb2TW0" target="_blank" rel="noopener noreferrer" style="display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(24, 34, 28, 0.1);">
+      {% image "src/assets/img/apercu-google-avis-fabio-white.jpg", "Overview of Fabio Gomes' Google Reviews", "(min-width: 600px) 600px, 100vw" %}
+    </a>
+    <p style="margin-top: var(--spacing-md); font-weight: 600; font-size: 1.1rem; color: var(--color-primary);">43 Google reviews with an average of 5 out of 5</p>
+  </div>
+  
+  <div class="hero-actions" style="margin-top: var(--spacing-xl); justify-content: center;">
+    <a href="{{ '/en/healing-pass-companies/' | url }}" class="btn btn-gold">For Companies</a>
+    <a href="{{ '/en/healing-pass-nursing-homes/' | url }}" class="btn btn-green">For <span class="tooltip" data-tooltip="Nursing Homes">Nursing Homes</span></a>
+    <a href="{{ '/en/healing-pass-individuals/' | url }}" class="btn btn-outline">For Individuals</a>
+  </div>
+</section>

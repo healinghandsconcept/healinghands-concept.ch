@@ -1,0 +1,66 @@
+---
+translationKey: about
+layout: base.njk
+title: About - Healing Hands Concept
+description: Discover Fabio Gomes, founder of Healing Hands Concept and massage champion.
+---
+
+<section class="page-header container">
+  <h1>About Fabio Gomes - Masseur in Fribourg</h1>
+</section>
+
+<section class="about-content container section-padding">
+  <div class="about-grid">
+    <div class="about-text">
+      <h2>Passion and Expertise</h2>
+      <p>The desire to offer a different well-being experience and inspire a healthy lifestyle has always been in my heart. For me, well-being is not just a one-time treatment, but a way of life.</p>
+      
+      <p>Born in Nyon, of Portuguese origin, I have been practicing therapeutic and sports massage professionally in the Fribourg region since 2014. My approach combines precise technique and empathetic listening.</p>
+
+      <h3>My Lifestyle</h3>
+      <p>Movement is an integral part of my balance: football, calisthenics, snowboarding. I nourish my mind through reading and continuous training.</p>
+    </div>
+    <div class="about-image">
+      {% image "src/assets/img/founder.jpg", "Fabio Gomes - Founder of Healing Hands Concept", "(min-width: 768px) 50vw, 100vw" %}
+    </div>
+  </div>
+</section>
+
+<section class="awards container section-padding">
+  <h2>Awards & Recognitions</h2>
+  <div class="awards-list">
+    <div class="award-item">
+      <div class="award-image-wrap">
+        {% image "src/assets/img/fabio-award-1ere-place-international-2024.png", "1st Place Medal International Massage 2024", "100px" %}
+      </div>
+      <span class="year">2024</span>
+      <h4>1st Place – Massage Category (International)</h4>
+      <p>International Championship</p>
+    </div>
+    <div class="award-item">
+      <div class="award-image-wrap">
+        {% image "src/assets/img/fabio-award-1ere-place-international-2024-wellness.png", "1st Place Medal International Wellness 2024", "100px" %}
+      </div>
+      <span class="year">2024</span>
+      <h4>1st Place – Wellness Category (International)</h4>
+      <p>International Championship</p>
+    </div>
+    <div class="award-item">
+      <div class="award-image-wrap">
+        {% image "src/assets/img/fabio-award-1ere-place-suisse-2024.png", "1st Place Medal Swiss Massage 2024", "100px" %}
+      </div>
+      <span class="year">2023</span>
+      <h4>1st Place – Massage Category (National)</h4>
+      <p>Swiss Championship</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-cta container section-padding text-center">
+  <h2>How can we help you?</h2>
+  <div class="hero-actions" style="margin-top: var(--spacing-lg);">
+    <a href="{{ '/en/healing-pass-companies/' | url }}" class="btn btn-gold">For Companies</a>
+    <a href="{{ '/en/healing-pass-nursing-homes/' | url }}" class="btn btn-green">For Nursing Homes</a>
+    <a href="{{ '/en/healing-pass-individuals/' | url }}" class="btn btn-outline">For Individuals</a>
+  </div>
+</section>

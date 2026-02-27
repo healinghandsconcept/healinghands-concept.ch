@@ -1,0 +1,23 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% for item in collections.all %}
+  <url>
+    <loc>{{ metadata.url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date.toISOString() }}</lastmod>
+    {% if item.data.translationKey %}
+      {% for altItem in collections.all %}
+        {% if altItem.data.translationKey == item.data.translationKey %}
+        <xhtml:link rel="alternate" hreflang="{{ altItem.data.language }}" href="{{ metadata.url }}{{ altItem.url }}" />
+        {% if altItem.data.language == 'fr' %}
+        <xhtml:link rel="alternate" hreflang="x-default" href="{{ metadata.url }}{{ altItem.url }}" />
+        {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </url>
+{% endfor %}
+</urlset>

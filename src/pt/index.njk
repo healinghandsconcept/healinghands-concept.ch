@@ -1,0 +1,58 @@
+---
+translationKey: home
+layout: base.njk
+title: Massagem terapêutica na região de Friburgo - Healing Hands Concept
+description: Massagens terapêuticas e programas de prevenção para empresas e particulares na região de Friburgo.
+bodyClass: home-page
+---
+
+<section class="hero" style="--hero-bg-image: url('{{ '/assets/img/JWD05672.jpg' | url }}');">
+  <div class="container hero-content">
+    <span style="display: block; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-secondary); margin-bottom: 0.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">O bem-estar como base</span>
+    <h1>Massagens terapêuticas e bem-estar na região de Friburgo</h1>
+    <p>Fabio Gomes, Campeão Suíço de massagem e medalhista europeu, acompanha empresas, lares de idosos e particulares com um Healing Pass flexível e adaptado ao seu orçamento.</p>
+    <div class="hero-actions">
+      <a href="{{ '/pt/healing-pass-empresas/' | url }}" class="btn btn-gold">Para Empresas</a>
+      <a href="{{ '/pt/healing-pass-lares-de-idosos/' | url }}" class="btn btn-green">Para os <span class="tooltip" data-tooltip="Lares de Idosos">Lares</span></a>
+      <a href="{{ '/pt/healing-pass-particulares/' | url }}" class="btn btn-white">Para Particulares</a>
+    </div>
+  </div>
+</section>
+
+<section class="mission container section-padding">
+  <div class="mission-text">
+    <h2>O Healing Pass, bem-estar regular</h2>
+    <p>O princípio é simples: um orçamento de bem-estar claro (por exemplo, 50 CHF/mês/pessoa), utilizável de acordo com as necessidades reais, no consultório ou diretamente no local. O objetivo é agir antes do esgotamento físico e mental.</p>
+  </div>
+</section>
+
+<section class="features container section-padding">
+  <a href="{{ '/pt/healing-pass-empresas/' | url }}" class="feature-card">
+    <h3>Para empresas</h3>
+    <p>Reduzir as tensões ligadas ao sedentarismo, apoiar a retenção de talentos e reforçar o desempenho sustentável das equipas.</p>
+  </a>
+  <a href="{{ '/pt/healing-pass-lares-de-idosos/' | url }}" class="feature-card">
+    <h3>Para <span class="tooltip" data-tooltip="Lares de Idosos">Lares</span></h3>
+    <p>Cuidar de quem cuida e acalmar os residentes: prevenção de <span class="tooltip" data-tooltip="lesões musculoesqueléticas (afecções de músculos, tendões, nervos)">LME</span> para as equipas e toques terapêuticos para os idosos.</p>
+  </a>
+  <a href="{{ '/pt/healing-pass-particulares/' | url }}" class="feature-card">
+    <h3>Para particulares</h3>
+    <p>Acesso simples a tratamentos terapêuticos de precisão, com qualidade reconhecida localmente (40+ avaliações no Google, nota 5/5).</p>
+  </a>
+</section>
+
+<section class="testimonials container section-padding text-center">
+  <h2>Eles confiam em nós</h2>
+  <div style="margin-top: var(--spacing-lg); max-width: 600px; margin-left: auto; margin-right: auto; padding: 0 var(--spacing-md);">
+    <a href="https://share.google/3NkiYm33ABirb2TW0" target="_blank" rel="noopener noreferrer" style="display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(24, 34, 28, 0.1);">
+      {% image "src/assets/img/apercu-google-avis-fabio-white.jpg", "Prévia das avaliações do Google do Fabio Gomes", "(min-width: 600px) 600px, 100vw" %}
+    </a>
+    <p style="margin-top: var(--spacing-md); font-weight: 600; font-size: 1.1rem; color: var(--color-primary);">43 avaliações no Google com uma média de 5 em 5</p>
+  </div>
+  
+  <div class="hero-actions" style="margin-top: var(--spacing-xl); justify-content: center;">
+    <a href="{{ '/pt/healing-pass-empresas/' | url }}" class="btn btn-gold">Para Empresas</a>
+    <a href="{{ '/pt/healing-pass-lares-de-idosos/' | url }}" class="btn btn-green">Para os <span class="tooltip" data-tooltip="Lares de Idosos">Lares</span></a>
+    <a href="{{ '/pt/healing-pass-particulares/' | url }}" class="btn btn-outline">Para Particulares</a>
+  </div>
+</section>
