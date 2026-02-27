@@ -160,20 +160,39 @@ img {
 /* Buttons */
 .btn {
     display: inline-block;
-    background-color: var(--color-secondary);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 4px;
+    padding: 14px 28px;
+    border-radius: 8px;
     font-family: var(--font-heading);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-align: center;
 }
 
-.btn:hover {
+.btn-gold {
+    background-color: var(--color-secondary);
+    color: white !important;
+}
+
+.btn-gold:hover {
     background-color: #B8962E;
-    /* Darker shade of gold */
-    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-green {
+    background-color: var(--color-primary);
+    color: white !important;
+}
+
+.btn-green:hover {
+    background-color: #243a2d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(27, 50, 33, 0.3);
 }
 
 .btn-outline {
@@ -184,7 +203,19 @@ img {
 
 .btn-outline:hover {
     background-color: var(--color-primary);
-    color: white;
+    color: white !important;
+}
+
+.btn-white-outline {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid white;
+    color: white !important;
+}
+
+.btn-white-outline:hover {
+    background-color: white;
+    color: var(--color-primary) !important;
+    transform: translateY(-2px);
 }
 
 /* Footer */
