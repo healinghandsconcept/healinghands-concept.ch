@@ -599,6 +599,31 @@ img {
     color: #0c5460;
 }
 
+/* Legal & Text Content */
+.legal-content h2 {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.legal-content h2:first-child {
+    margin-top: 0;
+}
+
+.legal-content h3 {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+}
+
+.legal-content p {
+    margin-bottom: var(--spacing-md);
+}
+
+.legal-content p:last-child {
+    margin-bottom: 0;
+}
+
 /* Footer */
 .site-footer {
     background-color: var(--color-primary);
