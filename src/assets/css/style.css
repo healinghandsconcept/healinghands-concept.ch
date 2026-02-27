@@ -87,7 +87,7 @@ img {
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: var(--spacing-md);
-    padding: 14px 28px;
+    padding: 10px 24px;
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.72);
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -164,34 +164,27 @@ img {
 }
 
 .logo img {
-    height: 54px;
+    height: 46px;
     width: auto;
 }
 
 .header-nav-groups {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    grid-column: 1 / -1;
-    width: 100%;
-    gap: var(--spacing-md);
-    pointer-events: none;
-}
-
-.header-nav-groups .site-nav {
-    pointer-events: auto;
+    display: contents;
 }
 
 .site-nav-left {
     grid-column: 1;
+    justify-self: start;
 }
 
 .logo {
     grid-column: 2;
+    align-self: center;
 }
 
 .site-nav-right {
     grid-column: 3;
+    justify-self: end;
 }
 
 .site-nav ul {
