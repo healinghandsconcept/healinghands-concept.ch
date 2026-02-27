@@ -509,15 +509,6 @@ img {
     margin-bottom: var(--spacing-lg);
 }
 
-.cta-box .btn {
-    background-color: white;
-    color: var(--color-primary);
-}
-
-.cta-box .btn:hover {
-    background-color: var(--color-secondary);
-    color: white;
-}
 
 /* Contact Page */
 .contact-grid {
