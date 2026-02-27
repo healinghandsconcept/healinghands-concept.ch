@@ -399,8 +399,14 @@ img {
     padding: var(--spacing-lg);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-bottom: 3px solid transparent;
+    display: block;
+    /* Support anchor tags */
+    text-decoration: none;
+    /* Remove underline */
+    color: var(--color-text);
+    /* Keep standard text color */
 }
 
 .feature-card:hover,
