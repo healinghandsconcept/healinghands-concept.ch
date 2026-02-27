@@ -54,30 +54,36 @@
     <header class="site-header">
         <div class="container">
             <div class="header-shell">
-                <nav class="site-nav site-nav-left" aria-label="Navigation principale gauche">
-                    <ul>
-                        <li><a href="{{ '/fr/healing-pass-entreprises/' | url }}">Pour entreprises</a></li>
-                        <li><a href="{{ '/fr/healing-pass-ems/' | url }}">Pour EMS</a></li>
-                        <li><a href="{{ '/fr/healing-pass-particuliers/' | url }}">Pour particuliers</a></li>
-                    </ul>
-                </nav>
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Ouvrir le menu">
+                    <span class="menu-toggle-label">Menu</span>
+                    <span class="menu-toggle-icon" aria-hidden="true"></span>
+                </button>
                 <a href="{{ '/fr/' | url }}" class="logo">
                     {% image "src/assets/img/logo-transparent.png", "Healing Hands Concept", "200px" %}
                 </a>
-                <nav class="site-nav site-nav-right" aria-label="Navigation principale droite">
-                    <ul>
-                        <li><a href="{{ '/fr/a-propos/' | url }}">A propos</a></li>
-                        <li><a href="{{ '/fr/contact/' | url }}">Contact</a></li>
-                        <li class="lang-switcher">
-                            <span class="lang-switcher-label">Langue</span>
-                            <a href="{{ '/fr/' | url }}" class="lang-option{% if currentLanguage == 'fr' %} is-active{% endif %}" lang="fr"{% if currentLanguage == 'fr' %} aria-current="true"{% endif %}>FR</a>
-                            <span class="lang-divider" aria-hidden="true">/</span>
-                            <span class="lang-option is-disabled" lang="pt" aria-disabled="true" title="Version portugaise bientôt disponible">PT</span>
-                            <span class="lang-divider" aria-hidden="true">/</span>
-                            <span class="lang-option is-disabled" lang="en" aria-disabled="true" title="English version coming soon">EN</span>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="header-nav-groups" id="site-menu">
+                    <nav class="site-nav site-nav-left" aria-label="Navigation principale gauche">
+                        <ul>
+                            <li><a href="{{ '/fr/healing-pass-entreprises/' | url }}">Pour entreprises</a></li>
+                            <li><a href="{{ '/fr/healing-pass-ems/' | url }}">Pour EMS</a></li>
+                            <li><a href="{{ '/fr/healing-pass-particuliers/' | url }}">Pour particuliers</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="site-nav site-nav-right" aria-label="Navigation principale droite">
+                        <ul>
+                            <li><a href="{{ '/fr/a-propos/' | url }}">A propos</a></li>
+                            <li><a href="{{ '/fr/contact/' | url }}">Contact</a></li>
+                            <li class="lang-switcher">
+                                <span class="lang-switcher-label">Langue</span>
+                                <a href="{{ '/fr/' | url }}" class="lang-option{% if currentLanguage == 'fr' %} is-active{% endif %}" lang="fr"{% if currentLanguage == 'fr' %} aria-current="true"{% endif %}>FR</a>
+                                <span class="lang-divider" aria-hidden="true">/</span>
+                                <span class="lang-option is-disabled" lang="pt" aria-disabled="true" title="Version portugaise bientôt disponible">PT</span>
+                                <span class="lang-divider" aria-hidden="true">/</span>
+                                <span class="lang-option is-disabled" lang="en" aria-disabled="true" title="English version coming soon">EN</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>
