@@ -49,6 +49,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+{% set currentLanguage = language or metadata.language or 'fr' %}
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
     <header class="site-header">
         <div class="container">
@@ -67,6 +68,14 @@
                     <ul>
                         <li><a href="{{ '/fr/a-propos/' | url }}">A propos</a></li>
                         <li><a href="{{ '/fr/contact/' | url }}">Contact</a></li>
+                        <li class="lang-switcher">
+                            <span class="lang-switcher-label">Langue</span>
+                            <a href="{{ '/fr/' | url }}" class="lang-option{% if currentLanguage == 'fr' %} is-active{% endif %}" lang="fr"{% if currentLanguage == 'fr' %} aria-current="true"{% endif %}>FR</a>
+                            <span class="lang-divider" aria-hidden="true">/</span>
+                            <span class="lang-option is-disabled" lang="pt" aria-disabled="true" title="Version portugaise bientôt disponible">PT</span>
+                            <span class="lang-divider" aria-hidden="true">/</span>
+                            <span class="lang-option is-disabled" lang="en" aria-disabled="true" title="English version coming soon">EN</span>
+                        </li>
                     </ul>
                 </nav>
             </div>

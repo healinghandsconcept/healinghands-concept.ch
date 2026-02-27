@@ -153,6 +153,49 @@ img {
     color: #000;
 }
 
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+}
+
+.lang-switcher .lang-switcher-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.7px;
+    opacity: 0.7;
+}
+
+.lang-switcher .lang-option {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.lang-switcher a.lang-option {
+    color: #243a2d;
+}
+
+.lang-switcher a.lang-option:hover {
+    color: #000;
+}
+
+.lang-switcher .lang-option.is-active {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.lang-switcher .lang-option.is-disabled {
+    color: rgba(36, 58, 45, 0.46);
+    cursor: not-allowed;
+}
+
+.lang-switcher .lang-divider {
+    opacity: 0.45;
+}
+
 .site-header.header-hidden {
     transform: translateY(-100%);
 }
@@ -557,6 +600,14 @@ img {
 
     .site-nav a {
         font-size: 0.7rem;
+    }
+
+    .lang-switcher .lang-switcher-label {
+        display: none;
+    }
+
+    .lang-switcher .lang-option {
+        font-size: 0.68rem;
     }
 
     .hero {

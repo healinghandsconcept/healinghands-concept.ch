@@ -36,3 +36,10 @@ Pour maximiser la délivrabilité des emails envoyés via le formulaire de conta
 
 ### Témoignages Clients
 - **Action** : Ajouter une section de témoignages (Google Reviews) sur la page d'accueil.
+
+## 🌍 Multilingue
+
+### Déploiement FR / PT / EN
+- **Statut** : À planifier après validation complète du contenu FR.
+- **Action** : Déployer le site en **FR, PT et EN** avec le **français comme langue maîtresse** (source de traduction et version de référence éditoriale).
+- **Bonnes pratiques** : Garder une parité stricte des pages par langue, puis activer `hreflang` complet lorsque PT/EN seront publiées.
